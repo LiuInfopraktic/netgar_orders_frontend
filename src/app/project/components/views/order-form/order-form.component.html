@@ -1,0 +1,29 @@
+<section>
+    <div class="form">
+        <div class="in-line">
+            <div class="input-box short" #input_box_dni>
+                <p>DNI</p>
+                <input type="text" #input_dni (focus)="focus(input_box_dni)" (blur)="blur(input_box_dni, input_dni.value)">
+            </div>
+            <div class="input-box long" #input_box_name>
+                <p>Nom i Cognom</p>
+                <input type="text" #input_name (focus)="focus(input_box_name)" (blur)="blur(input_box_name, input_name.value)">
+            </div>
+        </div>
+        <div class="input-box short" #input_box_tel>
+            <p>Telefon</p>
+            <input type="text" #input_tel (focus)="focus(input_box_tel)" (blur)="blur(input_box_tel, input_tel.value)">
+        </div>
+        <div class="input-box long" #input_box_emp>
+            <p>Empresa</p>
+            <input type="text" #input_emp (focus)="focus(input_box_emp)" (blur)="blur(input_box_emp, input_emp.value)">
+        </div>
+        <select>
+            <option>Visita</option>
+            <option>Entrevista</option>
+            <option>Treball</option>
+        </select>
+
+        <button>acceptar</button>
+    </div>
+</section>
