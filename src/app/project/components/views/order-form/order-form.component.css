@@ -2,7 +2,7 @@ section
 {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: var(--main-color-02);
 
     display: flex;
@@ -10,9 +10,19 @@ section
     justify-content: center;
 }
 
+section > .form > img
+{
+    margin-left: 50%;
+    margin-bottom: 2rem;
+    transform: translateX(-50%);
+    width: 150px;
+    height: auto;
+}
+
 .form
 {
     background: white;
+    margin: 2rem;
     border-radius: 30px;
     min-height: 200px;
     width: 600px;
@@ -21,7 +31,7 @@ section
     display: flex;
     flex-direction: column;
 }
-
+.form h1{margin-bottom: 2rem;}
 .in-line
 {
     width: 100%;
@@ -94,6 +104,39 @@ select
     width: 175px;
     margin-top: 1rem;
 }
+.accept_info
+{
+    margin-top: 1.5rem;
+    font-size: .55rem;
+}
+label.error
+{
+    margin: .5rem 0 10px 50%;
+    transform: translate(-50%);
+    padding: 0 10px;
+    color: #E33C2F;
+    background: #E33C2F20;
+    border: 1px solid #E33C2F;
+    border-radius: 5px;
+    min-height: 35px;
+    line-height: 35px;
+    width: fit-content;
+    font-size: .9rem;
+    opacity: 0;
+}
+label.error.show{opacity: 1;}
+label.error.success.show
+{
+    color:#279946;
+    background: #27994620;
+    border: 1px solid #279946;
+    animation: fade 3s linear;
+}
+@keyframes fade {
+    0%{opacity: 1;}
+    70%{opacity: 1;}
+    100%{opacity: 0;}
+}
 button
 {
     align-self: center;
@@ -106,10 +149,76 @@ button
     box-shadow: 1px 3px 6px #00000020;
     background: var(--main-color);
     color: white;
+    font-size: 1.1rem;
     outline: none;
-    margin: 2rem 0;
     cursor: pointer;
     transition: .1s;
 }
 button:hover{border-bottom: 5px solid var(--main-color-dark2); background: var(--main-color-dark);}
 button:active{border-bottom: 1px solid var(--main-color-dark2); box-shadow: unset;}
+
+button.loading
+{
+    position: relative;
+    user-select: none;
+    pointer-events: none;
+    color: #ffffff00;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button.loading::before
+{
+    content: '';
+    position: absolute;
+    height: 50%;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    border: 2px solid #f9f9f9;
+    border-left: 2px solid #ffffff20;
+    border-top: 2px solid #ffffff20;
+    animation: rotate 1s infinite linear;
+}
+@keyframes rotate {
+    0%{transform: rotate(360deg);}
+    100%{transform: rotate(0deg);}
+}
+
+.popup
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width: 100vw;
+    background: var(--main-color-02);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+    padding: 2rem;
+}
+.popup.hide{display: none;}
+.popup-msg
+{
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 30px;
+    background:white;
+    max-width: 700px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.popup-msg img 
+{
+    position: relative;
+    width: 90%;
+    min-width: 400px;
+    height: auto;
+}
+.popup-msg > div{display: flex; gap:20px; margin: 1rem;}

@@ -12,7 +12,8 @@ export class AOrders {
     constructor(private http: HttpClient){}
 
     putOrder(order:any):Observable<any> {
-        return this.http.post(`${this.url}/orders`,order, this.createHeader()); 
+        console.log(order)
+        return this.http.post(`${this.url}/orders`, order, this.createHeader());
     }
 
 

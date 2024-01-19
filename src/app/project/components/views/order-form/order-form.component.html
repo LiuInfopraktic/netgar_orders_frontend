@@ -1,5 +1,18 @@
 <section>
+    <div class="popup hide">
+        <div class="popup-msg">
+            <img src="assets/netgar_popup.png">
+            <div>
+                <input type="checkbox" #input_accept>
+                <p>Accepto les condicions</p>
+            </div>
+            <button (click)="acceptForm(input_accept)">ACCEPTAR</button>
+        </div>
+
+    </div>
     <div class="form">
+        <img src="assets/logo.png"> 
+        <!-- <h1>Lorem Ipsum</h1> -->
         <div class="in-line">
             <div class="input-box short" #input_box_dni>
                 <p>DNI</p>
@@ -18,12 +31,16 @@
             <p>Empresa</p>
             <input type="text" #input_emp (focus)="focus(input_box_emp)" (blur)="blur(input_box_emp, input_emp.value)">
         </div>
-        <select>
+        <select #select>
             <option>Visita</option>
             <option>Entrevista</option>
             <option>Treball</option>
         </select>
-
-        <button>acceptar</button>
+        <p class="accept_info">Les dades que ens facilita en aquest formulari passaran a formar part de  NETEGES GARROTXA, S.L.  amb la finalitat de complir amb la normativa de  Prevenció de Riscos Laborals. Les seves dades no seran cedides a tercers, sempre que no hi hagi un imperatiu legal.
+            Totes les dades personals recopilades seran conservades seguint les directrius de les normatives vigents.
+            De qualsevol dels apartats anterior, pot exercir els seus drets d'accés, rectificació, limitació, supressió, i oposició, i sol.licitar informació addicional, indicant-ho per escrit a NETEGES GARROTXA, S.L.  adreça Carretera La Canya, 47B 17800 OLOT o per correu electrònic a: netgar@netgar.com.   (Reglament (UE) 2016/679 del Parlament Europeu i del Consell de 27 d'abril de 2016 i Llei  Orgànica 3/2018, de 5 de desembre, de Protecció de Dades  Personals i garantia de drets digitals).
+            </p>
+        <label class="error">abc</label>
+        <button #btn_submit (click)="submitForm(btn_submit, input_dni.value, input_tel.value, input_name.value, input_emp.value, select.value)">acceptar</button>
     </div>
 </section>
