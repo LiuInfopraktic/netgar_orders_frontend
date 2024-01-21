@@ -13,29 +13,29 @@ export class OrderFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  // Form submit butn
   submitForm(btn:HTMLButtonElement, dni:string, tel:string, name:string, emp:string, type:string) {
     btn.classList.add('loading');
     this.order = { dni, tel, name, emp, type }
     let popup = document.querySelector('.popup')
     popup?.classList.remove('hide')
   }
+
+  // Terms and conditions agreement option
   async acceptForm(input:HTMLInputElement){
     let err = document.querySelector('label.error');
+    err?.classList.add('show');
     if(input.checked){
       try {
         let response = await this.addOrder();
-        err?.classList.add('show')
         this.emptyForm();
-        if(!response.message) {
-          if(err) err.textContent= "No s'ha pogut guardar la comanda."
-        } else {
-          err ? this.successMsg(err) : ''
-        }
-          let popup = document.querySelector('.popup')
-          popup?.classList.add('hide')
-          let btn = document.querySelector('button.loading')
-          btn?.classList.remove('loading')
+        if(!response.message) {if(err) err.textContent= "No s'ha pogut guardar la comanda."}
+        else err ? this.successMsg(err) : ''
+
+        let popup = document.querySelector('.popup')
+        popup?.classList.add('hide')
+        let btn = document.querySelector('button.loading')
+        btn?.classList.remove('loading')
         
       } catch(e){
         if(err) err.textContent= "No s'ha pogut guardar la comanda."
@@ -44,7 +44,7 @@ export class OrderFormComponent implements OnInit {
         let btn = document.querySelector('button.loading')
         btn?.classList.remove('loading')
       }
-    }else{
+    } else{
       if(err) err.textContent= "No s'han acceptat les condicions.";
           
       let popup = document.querySelector('.popup')
