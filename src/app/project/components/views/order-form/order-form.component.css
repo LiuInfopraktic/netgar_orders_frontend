@@ -111,8 +111,7 @@ select
 }
 label.error
 {
-    margin: .5rem 0 10px 50%;
-    transform: translate(-50%);
+    margin: .5rem 0 10px 0;
     padding: 0 10px;
     color: #E33C2F;
     background: #E33C2F20;
@@ -120,7 +119,6 @@ label.error
     border-radius: 5px;
     min-height: 35px;
     line-height: 35px;
-    width: fit-content;
     font-size: .9rem;
     opacity: 0;
 }
