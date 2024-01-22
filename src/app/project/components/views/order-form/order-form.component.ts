@@ -15,10 +15,25 @@ export class OrderFormComponent implements OnInit {
 
   // Form submit butn
   submitForm(btn:HTMLButtonElement, dni:string, tel:string, name:string, emp:string, type:string) {
-    btn.classList.add('loading');
-    this.order = { dni, tel, name, emp, type }
-    let popup = document.querySelector('.popup')
-    popup?.classList.remove('hide')
+    let valid = false;
+    if(dni){
+      let first_char = dni.substring(0,1);
+      
+      if(!isNaN(parseInt(first_char.charAt(0), 10))) this.checkDNI(dni) ? valid = true : ''
+      else this.checkNIE(dni) ? valid = true : ''
+    }
+    if (valid){
+      btn.classList.add('loading');
+      this.order = { dni, tel, name, emp, type }
+      let popup = document.querySelector('.popup')
+      popup?.classList.remove('hide');
+    } else {
+      document.querySelector('.form .input-box.dni')?.classList.add('error')
+      let err = document.querySelector('label.error');
+      err?.classList.add('show');
+      if(err) err.textContent= "El DNI/NIE no es correcte."
+
+    }
   }
 
   // Terms and conditions agreement option
@@ -73,10 +88,26 @@ export class OrderFormComponent implements OnInit {
 
   focus(input_box:HTMLDivElement){
     input_box.classList.add('focus')
+    input_box.classList.contains('error') ? input_box.classList.remove('error'): ''
   }
   blur(input_box:HTMLDivElement, input_value:string){
     if(input_value == '') {
       input_box.classList.remove('focus')
     }
+  }
+
+  checkNIE(nie:string){
+    const nieRegex = /^[XYZ]\d{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
+    return nieRegex.test(nie);
+  }
+  checkDNI(dni:string){
+    const dniRegex = /^\d{8}[A-HJ-NP-TV-Z]$/;
+    const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
+    if (!dniRegex.test(dni)) {
+      return false;
+    }
+    const letraControl = letras[parseInt(dni.substr(0, 8), 10) % 23];
+    return letraControl === dni.charAt(8);
   }
 }

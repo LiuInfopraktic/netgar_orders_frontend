@@ -67,8 +67,8 @@ section > .form > img
 }
 .input-box::before{left:50%}
 .input-box::after{right:50%}
-.input-box.focus::before,
-.input-box.focus::after { width: 50%;}
+.input-box.focus:not(.error)::before,
+.input-box.focus:not(.error)::after { width: 50%;}
 
 .input-box p
 {
@@ -89,6 +89,7 @@ section > .form > img
     color: var(--main-color);
     font-size: 1.1rem;
 }
+.input-box.error{border:1px solid #E33C2F;}
 
 select
 {
@@ -106,8 +107,15 @@ select
 }
 .accept_info
 {
+    position:relative;
     margin-top: 1.5rem;
-    font-size: .55rem;
+    font-size: .75rem;
+    /* height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;*/
 }
 label.error
 {
@@ -201,22 +209,34 @@ button.loading::before
 .popup.hide{display: none;}
 .popup-msg
 {
+    padding-bottom: 2rem;
     margin: 2rem;
-    padding: 2rem;
     border-radius: 30px;
     background:white;
-    max-width: 700px;
+    max-width: 1100px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.popup-msg img 
+/* .popup-msg img 
 {
     position: relative;
     width: 90%;
     min-width: 400px;
     height: auto;
+} */
+.blue_section
+{
+    display: flex;
+    flex-direction: column;
+    background: #002060;
+    width: 100%;
+    padding: .5rem 1rem;
 }
-.popup-msg > div{display: flex; gap:20px; margin: 1rem;}
+.popup-msg p[name='header'] {width: 100%; text-align: left; padding: 1rem 0 1rem 20px; font-size: .8rem;}
+.popup-msg p[name='intro'], ul{padding: 1rem 2rem; font-size: .8rem;}
+.blue_section * {color: #dedede; text-align: center;}
+.popup-msg .checkbox{display: flex; gap:20px; margin: 1rem;}
+.popup-msg > img { width: 200px; height: auto;}
