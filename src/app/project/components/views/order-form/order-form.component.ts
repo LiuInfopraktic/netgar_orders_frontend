@@ -70,6 +70,7 @@ export class OrderFormComponent implements OnInit {
     let checkbox:HTMLInputElement|null = document.querySelector("input[type='checkbox']");
     if(checkbox) checkbox.checked = false
     btn2.classList.remove('loading')
+    btn?.classList.remove('loading')
   }
   async successMsg(label:Element){
     label.classList.add('success')
