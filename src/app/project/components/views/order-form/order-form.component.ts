@@ -100,6 +100,7 @@ export class OrderFormComponent implements OnInit {
   }
 
   checkNIE(nie:string){
+    nie = nie.toLocaleUpperCase();
     const nieRegex = /^[XYZ]\d{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
     return nieRegex.test(nie);
   }
