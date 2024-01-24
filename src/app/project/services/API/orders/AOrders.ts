@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 
 export class AOrders {
-    url = 'http://localhost:3000/api/v0.1';
+    url = 'http://192.168.1.24:3000/api/v0.1';
     constructor(private http: HttpClient){}
 
     putOrder(order:any):Observable<any> {
