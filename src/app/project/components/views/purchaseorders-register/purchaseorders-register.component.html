@@ -1,0 +1,29 @@
+<section>
+    <div class="filter-box">
+        <div class="prov-filter filter">
+            <p>Proveidor</p>
+            <div class="input-box" (click)="prov_list.classList.add('focus')">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p>{{proveedor}}</p>
+                <i class="fa-solid fa-circle-xmark" (click)="this.proveedor='';filterProv(); $event.stopPropagation(); prov_list.classList.remove('focus')"></i>
+            </div>
+            <div class="proveedor-list" #prov_list>
+                <p *ngFor="let contact of this.contacts" (click)="this.proveedor = contact;filterProv(); prov_list.classList.remove('focus')">{{contact}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <div class="header">
+            <p>Proveidor</p>
+            <p>Articles</p>
+            <p>Data</p>
+        </div>
+        <ul>
+            <li *ngFor="let alb of this.albarans">
+                <p>{{alb.prov}}</p>
+                <p>{{alb.art}}</p>
+                <p>{{alb.date}}</p>
+            </li>
+        </ul>
+    </div>
+</section>
