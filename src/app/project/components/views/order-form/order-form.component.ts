@@ -38,7 +38,7 @@ export class OrderFormComponent implements OnInit {
 
   // Terms and conditions agreement option
   async acceptForm(btn2:HTMLButtonElement ,input:HTMLInputElement){
-    let btn = document.querySelector('button.loading')
+    let btn = document.querySelector('.form button.loading')
     btn2.classList.add('loading')
     let err = document.querySelector('label.error');
     err?.classList.add('show');
