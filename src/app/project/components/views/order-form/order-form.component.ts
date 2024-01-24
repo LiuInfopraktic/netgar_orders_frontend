@@ -37,7 +37,9 @@ export class OrderFormComponent implements OnInit {
   }
 
   // Terms and conditions agreement option
-  async acceptForm(input:HTMLInputElement){
+  async acceptForm(btn2:HTMLButtonElement ,input:HTMLInputElement){
+    let btn = document.querySelector('button.loading')
+    btn2.classList.add('loading')
     let err = document.querySelector('label.error');
     err?.classList.add('show');
     if(input.checked){
@@ -49,14 +51,12 @@ export class OrderFormComponent implements OnInit {
 
         let popup = document.querySelector('.popup')
         popup?.classList.add('hide')
-        let btn = document.querySelector('button.loading')
         btn?.classList.remove('loading')
         
       } catch(e){
         if(err) err.textContent= "No s'ha pogut guardar la comanda."
         let popup = document.querySelector('.popup')
         popup?.classList.add('hide')
-        let btn = document.querySelector('button.loading')
         btn?.classList.remove('loading')
       }
     } else{
@@ -69,6 +69,7 @@ export class OrderFormComponent implements OnInit {
     }
     let checkbox:HTMLInputElement|null = document.querySelector("input[type='checkbox']");
     if(checkbox) checkbox.checked = false
+    btn2.classList.remove('loading')
   }
   async successMsg(label:Element){
     label.classList.add('success')
