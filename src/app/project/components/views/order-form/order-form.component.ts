@@ -67,6 +67,8 @@ export class OrderFormComponent implements OnInit {
       let btn = document.querySelector('button.loading')
       btn?.classList.remove('loading')
     }
+    let checkbox:HTMLInputElement|null = document.querySelector("input[type='checkbox']");
+    if(checkbox) checkbox.checked = false
   }
   async successMsg(label:Element){
     label.classList.add('success')
@@ -103,7 +105,7 @@ export class OrderFormComponent implements OnInit {
   checkDNI(dni:string){
     const dniRegex = /^\d{8}[A-HJ-NP-TV-Z]$/;
     const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
-
+    dni = dni.toLocaleUpperCase();
     if (!dniRegex.test(dni)) {
       return false;
     }
