@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { AContacts } from 'src/app/project/services/API/admin/AContacts';
+import { ADocuments } from 'src/app/project/services/API/admin/ADocuments';
 import { H_AContacts } from 'src/app/project/services/holdedAPI/H_AContacts';
 
 @Component({
@@ -8,37 +10,35 @@ import { H_AContacts } from 'src/app/project/services/holdedAPI/H_AContacts';
 })
 export class PurchaseordersRegisterComponent implements OnInit {
   proveedor:string = '';
-  contacts:any = ['prov1', 'prov2', 'prov3', 'prov4'];
-  albarans_template:any = [
-    {prov:'prov1', art:10, date:'23/01/2023'},
-    {prov:'prov1', art:8, date:'24/01/2023'},
-    {prov:'prov2', art:7, date:'20/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov3', art:10, date:'24/01/2023'},
-    {prov:'prov1', art:11, date:'23/01/2023'}
-  ]
-  albarans = this.albarans_template
-  constructor(private H_AContacts:H_AContacts) { }
+  contacts:any = [];
+  albarans_template:any = [];
+  albarans = this.albarans_template;
+  selected_alb:any = {}
+  constructor(private AContacts:AContacts, private ADocuments:ADocuments, private H_AContacts:H_AContacts) { }
 
   ngOnInit(): void {
     this.getContacts()
+    this.getDocuments()
+    this.holdedContacts()
   }
-  async getContacts(){let abc = await this.H_AContacts.getContacts().toPromise();console.log(abc)}
+  async holdedContacts(){let response = await this.H_AContacts.getContacts().toPromise(); console.log(response)}
+
+  async getContacts(){let response = await this.AContacts.getContacts().toPromise(); this.contacts = response.data;}
+  async getDocuments(){
+    let response = await this.ADocuments.getDocuments().toPromise();
+    this.albarans_template = response.data;
+    this.albarans = response.data;
+  }
 
   filterProv(){
     this.albarans = this.albarans_template
-    this.proveedor != '' ? this.albarans = this.albarans.filter((a:any) => a.prov == this.proveedor) : '';
+    this.proveedor != '' ? this.albarans = this.albarans.filter((a:any) => a.contact_name == this.proveedor) : '';
   }
+
+  selectAlb(alb:any, alb_section:HTMLDivElement){
+    this.selected_alb = alb;
+    alb_section.classList.remove('hide')
+  }
+
 
 }

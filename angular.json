@@ -70,7 +70,11 @@
               "browserTarget": "frontend:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "sslCert": "C:/Users/User/https/cert.pem",
+            "sslKey": "C:/Users/User/https/key.pem"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

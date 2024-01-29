@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
 })
 
 
-export class AOrders {
+export class AContacts {
     conf = require('../conf.json');
     url = this.conf.url;
     constructor(private http: HttpClient){}
 
-    putOrder(order:any):Observable<any> {
-        return this.http.post(`${this.url}/orders`, order, this.createHeader());
+    getContacts():Observable<any> {
+        return this.http.get(`${this.conf.url}/contacts`, this.createHeader());
     }
 
 

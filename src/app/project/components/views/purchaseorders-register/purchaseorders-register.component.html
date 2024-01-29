@@ -8,7 +8,7 @@
                 <i class="fa-solid fa-circle-xmark" (click)="this.proveedor='';filterProv(); $event.stopPropagation(); prov_list.classList.remove('focus')"></i>
             </div>
             <div class="proveedor-list" #prov_list>
-                <p *ngFor="let contact of this.contacts" (click)="this.proveedor = contact;filterProv(); prov_list.classList.remove('focus')">{{contact}}</p>
+                <p *ngFor="let contact of this.contacts" (click)="this.proveedor = contact.name;filterProv(); prov_list.classList.remove('focus')">{{contact.name}}</p>
             </div>
         </div>
     </div>
@@ -17,13 +17,41 @@
             <p>Proveidor</p>
             <p>Articles</p>
             <p>Data</p>
+            <p>Data entrega</p>
         </div>
         <ul>
-            <li *ngFor="let alb of this.albarans">
-                <p>{{alb.prov}}</p>
-                <p>{{alb.art}}</p>
-                <p>{{alb.date}}</p>
+            <li *ngFor="let alb of this.albarans" (click)="selectAlb(alb, alb_section)">
+                <p>{{alb.contact_name}}</p>
+                <p>{{alb.articles_index}}</p>
+                <p>{{alb.document_date}}</p>
+                <p>{{alb.document_due_date}}</p>
             </li>
         </ul>
+    </div>
+
+
+    <div class="alb-details-box hide" #alb_section>
+        <div class="alb-close" (click)="alb_section.classList.add('hide')"><i class="fa-solid fa-xmark"></i></div>
+        <div class="alb-details">
+            <div class="alb-details-header">
+                <div>
+                    <h1>Detalls albarà</h1>
+                    <p>{{this.selected_alb.contact_name}}</p>
+                </div>
+                <p>{{this.selected_alb.document_date}} - {{this.selected_alb.document_due_date}}</p>
+            </div>
+            <div class="table">
+                <div class="header">
+                    <p>Article</p>
+                    <p>Unitats</p>
+                </div>
+                <ul>
+                    <li *ngFor="let a of this.selected_alb.articles">
+                        <p>{{a.article_name}}</p>
+                        <p>{{a.units}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
