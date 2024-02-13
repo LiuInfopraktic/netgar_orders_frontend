@@ -19,8 +19,10 @@ export class PurchaseordersRegisterComponent implements OnInit {
   ngOnInit(): void {
     this.getContacts()
     this.getDocuments()
-    this.holdedContacts()
+    // this.holdedContacts()
+    this.test()
   }
+  async test(){let response = await this.H_AContacts.test().toPromise(); console.log(response)}
   async holdedContacts(){let response = await this.H_AContacts.getContacts().toPromise(); console.log(response)}
 
   async getContacts(){let response = await this.AContacts.getContacts().toPromise(); this.contacts = response.data;}
