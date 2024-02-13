@@ -5,7 +5,7 @@ import { PurchaseordersRegisterComponent } from './project/components/views/purc
 
 const routes: Routes = [
   {path: '', component:OrderFormComponent},
-  {path:'admin', component:PurchaseordersRegisterComponent}
+  {path:'albarans', component:PurchaseordersRegisterComponent}
 ];
 
 @NgModule({

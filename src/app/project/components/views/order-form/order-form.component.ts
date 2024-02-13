@@ -8,13 +8,26 @@ import { AOrders } from 'src/app/project/services/API/orders/AOrders';
 })
 export class OrderFormComponent implements OnInit {
   order!:any;
+  empresa:boolean = false;
   constructor(private AOrder:AOrders) { }
 
   ngOnInit(): void {
   }
-
+  checkboxSetActive(input:HTMLDivElement){
+    input.classList.contains('active') ? input.classList.remove('active') : input.classList.add('active')
+  }
+  visitType(input_box:HTMLDivElement, box:HTMLDivElement, empresa:HTMLDivElement, type:string){
+    if(type == 'empresa') {
+      this.empresa = true;
+      input_box.classList.remove('hide')
+    }
+    else input_box.classList.add('hide');
+    box.querySelector('.box.active')?.classList.remove('active')
+    empresa.classList.add('active')
+  }
   // Form submit butn
   submitForm(btn:HTMLButtonElement, dni:string, tel:string, name:string, emp:string, type:string) {
+    this.empresa ? '' : emp = 'Particular';
     let valid = false;
     if(dni){
       let first_char = dni.substring(0,1);
@@ -37,12 +50,12 @@ export class OrderFormComponent implements OnInit {
   }
 
   // Terms and conditions agreement option
-  async acceptForm(btn2:HTMLButtonElement ,input:HTMLInputElement){
+  async acceptForm(btn2:HTMLButtonElement ,input:HTMLDivElement){
     let btn = document.querySelector('.form button.loading')
     btn2.classList.add('loading')
     let err = document.querySelector('label.error');
     err?.classList.add('show');
-    if(input.checked){
+    if(input.classList.contains('active')){
       try {
         let response = await this.addOrder();
         this.emptyForm();
