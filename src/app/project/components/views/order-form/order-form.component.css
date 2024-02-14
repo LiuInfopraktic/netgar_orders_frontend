@@ -243,9 +243,11 @@ button.loading::before
     height: 40px;
     border-radius: 5px;
     cursor: pointer;
+    background: var(--main-color-04);
 }
 .popup-msg .checkbox p {
     color: var(--main-color);
+    font-weight: 600;
 }
 .popup-msg .checkbox .box {
     height: 22px;
@@ -256,6 +258,7 @@ button.loading::before
     display: flex;
     align-items: center;
     justify-content: center;
+    background: white;
 }
 .popup-msg .checkbox .box:not(.active) i {display: none;}
 .popup-msg .checkbox .box i {color: var(--main-color);}

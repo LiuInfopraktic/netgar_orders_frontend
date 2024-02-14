@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { OrderFormComponent } from './project/components/views/order-form/order-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PurchaseordersRegisterComponent } from './project/components/views/purchaseorders-register/purchaseorders-register.component';
+import { VisitsListComponent } from './project/components/views/visits-list/visits-list.component';
+import { LoginComponent } from './project/components/views/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrderFormComponent,
-    PurchaseordersRegisterComponent
+    PurchaseordersRegisterComponent,
+    VisitsListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

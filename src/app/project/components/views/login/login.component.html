@@ -1,0 +1,20 @@
+<section>
+    <div class="login-form">
+        <h3>Benvingut</h3>
+        <div class="input-box" #ipt_usr>
+            <label>Usuari</label>
+            <i class="fa-solid fa-user"></i>
+            <input type="text" #usr (focus)="focus(ipt_usr)" (blur)="blur(ipt_usr, usr)">
+        </div>
+        <div class="input-box" #ipt_pass>
+            <label>Contrasenya</label>
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" #pass (focus)="focus(ipt_pass)" (blur)="blur(ipt_pass, pass)">
+            <i class="fa-solid fa-eye-slash" #eye_icon (click)="showPassword(pass, eye_icon)"></i>
+        </div>
+        <ng-container *ngIf="this.error != ''">
+            <p class="error">{{this.error}}</p>
+        </ng-container>
+        <button #btn_login (click)="login(btn_login, usr.value, pass.value)">Entrar</button>
+    </div>
+</section>

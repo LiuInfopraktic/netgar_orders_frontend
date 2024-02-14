@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { AContacts } from 'src/app/project/services/API/admin/AContacts';
 import { ADocuments } from 'src/app/project/services/API/admin/ADocuments';
-import { H_AContacts } from 'src/app/project/services/holdedAPI/H_AContacts';
 
 @Component({
   selector: 'app-purchaseorders-register',
@@ -14,14 +13,12 @@ export class PurchaseordersRegisterComponent implements OnInit {
   albarans_template:any = [];
   albarans = this.albarans_template;
   selected_alb:any = {}
-  constructor(private AContacts:AContacts, private ADocuments:ADocuments, private H_AContacts:H_AContacts) { }
+  constructor(private AContacts:AContacts, private ADocuments:ADocuments) { }
 
   ngOnInit(): void {
     this.getContacts()
     this.getDocuments()
-    this.holdedContacts()
   }
-  async holdedContacts(){let response = await this.H_AContacts.getContacts().toPromise(); console.log(response)}
 
   async getContacts(){let response = await this.AContacts.getContacts().toPromise(); this.contacts = response.data;}
   async getDocuments(){
