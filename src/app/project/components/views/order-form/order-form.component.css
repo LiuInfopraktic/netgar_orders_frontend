@@ -3,7 +3,7 @@ section
     position: relative;
     width: 100vw;
     min-height: 100vh;
-    height: 160vh;
+    height: 115vh;
     background: var(--main-color-02);
 
     display: flex;
@@ -28,10 +28,12 @@ section > .form > img
     min-height: 200px;
     width: 600px;
     padding: 3rem;
+    height: 820px;
 
     display: flex;
     flex-direction: column;
 }
+.blue_section p {font-size: .9rem;}
 .form h1{margin-bottom: 2rem;}
 .in-line
 {
@@ -199,7 +201,6 @@ button.loading::before
     background: var(--main-color-02);
     backdrop-filter: blur(1px);
     z-index: 1;
-    padding: 2rem;
 }
 .popup.hide{display: none;}
 .popup-msg
