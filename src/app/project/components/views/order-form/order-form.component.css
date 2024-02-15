@@ -274,16 +274,20 @@ button.loading::before
     height: 40px;
     padding: 0 1rem;
     cursor: pointer;
+    border: 1px solid var(--main-color);
+    background: var(--main-color-02);
+    border-radius: 5px;
 }
 .emp-checkbox .box
 {
     height: 20px;
     aspect-ratio: 1/1;
-    border: 1px solid #00000020;
+    border: 1px solid #00000040;
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: white;
 }
 .emp-checkbox .box i {color: var(--main-color); font-size: 1.1rem;}
 .emp-checkbox .box:not(.active) i {display: none;}
