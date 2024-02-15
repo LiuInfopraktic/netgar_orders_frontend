@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  /* login function */
   async login(btn:HTMLButtonElement, user:string, password:string){
     btn.classList.add('loading');
     if(user && password){
