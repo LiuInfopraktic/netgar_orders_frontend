@@ -22,8 +22,8 @@
                 <li>En cas de detectar qualsevol conat d'incendi, avisar immediatament al personal de l'empresa. Si es requereix una evacuiació de les instal·lacions caldrà dirigir-se obligatoriament al punt de trobada.</li>
             </ul>
             <img src="assets/img.png">
-            <div class="checkbox">
-                <input type="checkbox" #input_accept>
+            <div class="checkbox" (click)="checkboxSetActive(input_accept)">
+                <div class="box" #input_accept><i class="fa-solid fa-check"></i></div>
                 <p>Accepto les condicions</p>
             </div>
             <button (click)="acceptForm(second_btn, input_accept)" #second_btn>ACCEPTAR</button>
@@ -47,7 +47,17 @@
             <p>Telefon</p>
             <input type="number" #input_tel (focus)="focus(input_box_tel)" (blur)="blur(input_box_tel, input_tel.value)">
         </div>
-        <div class="input-box long" #input_box_emp>
+        <div class="in-line emp-checkbox" #emp_checkbox_box>
+            <div class="checkbox-option" (click)="visitType(input_box_emp, emp_checkbox_box, empresa, 'empresa')">
+                <div class="box" #empresa><i class="fa-solid fa-check"></i></div>
+                <p>Empresa</p>
+            </div>
+            <div class="checkbox-option" (click)="visitType(input_box_emp, emp_checkbox_box, particular, 'particular')">
+                <div class="box" #particular><i class="fa-solid fa-check"></i></div>
+                <p>Particular</p>
+            </div>
+        </div>
+        <div class="input-box long hide" #input_box_emp>
             <p>Empresa</p>
             <input type="text" #input_emp (focus)="focus(input_box_emp)" (blur)="blur(input_box_emp, input_emp.value)">
         </div>
@@ -60,7 +70,7 @@
             Totes les dades personals recopilades seran conservades seguint les directrius de les normatives vigents.
             De qualsevol dels apartats anterior, pot exercir els seus drets d'accés, rectificació, limitació, supressió, i oposició, i sol.licitar informació addicional, indicant-ho per escrit a NETEGES GARROTXA, S.L.  C/Terrassa 31, 17800 OLOT o per correu electrònic a: netgar@netgar.com.   (Reglament (UE) 2016/679 del Parlament Europeu i del Consell de 27 d'abril de 2016 i Llei  Orgànica 3/2018, de 5 de desembre, de Protecció de Dades  Personals i garantia de drets digitals).
         </p>
-        <label class="error">abc</label>
+        <label class="error"></label>
         <button #btn_submit (click)="submitForm(btn_submit, input_dni.value, input_tel.value, input_name.value, input_emp.value, select.value)">acceptar</button>
     </div>
 </section>

@@ -7,24 +7,15 @@ import { Observable } from 'rxjs';
 })
 
 
-export class AOrders {
-    conf = require('../conf.json');
-    url = this.conf.url;
-
+export class ALogin {
+    CONF = require('../conf.json')
+    url = this.CONF.url;
     constructor(private http: HttpClient){}
 
-    /************
-     * GETS
-    ************/
-    getOrders():Observable<any>{
-        return this.http.get(`${this.url}/orders`, this.createHeader());
-    }
+    requestOptions = this.createHeader();
 
-    /************
-     * POSTS
-    ************/
-    putOrder(order:any):Observable<any> {
-        return this.http.post(`${this.url}/orders`, order, this.createHeader());
+    getLogin(user:any):Observable<any> {
+        return this.http.post(`${this.url}/login`, user, this.requestOptions);
     }
 
 
@@ -34,9 +25,10 @@ export class AOrders {
             'Access-Control-Allow-Origin':'*',
             'Content-Type':'application/json',
             'Accept':'application/json',
-            'Acces-Control-Allow-Headers':'Origin, Content-Type, Accept,Authorization'
+            'Acces-Control-Allow-Headers':'Origin, Content-Type, Accept,Authorization',
         }
         return {headers: new HttpHeaders(header)};
     }
+
 
 }

@@ -6,22 +6,24 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 
-export class H_AContacts {
-    conf:any = require('./conf.json');
+
+export class AContacts {
+    conf = require('../conf.json');
+    url = this.conf.url;
     constructor(private http: HttpClient){}
 
-    getContacts(){
-        console.log(`${this.conf.url}/contacts`)
+    getContacts():Observable<any> {
         return this.http.get(`${this.conf.url}/contacts`, this.createHeader());
     }
-
 
 
     private createHeader() {
 
         const header = {
+            'Access-Control-Allow-Origin':'*',
+            'Content-Type':'application/json',
             'Accept':'application/json',
-            'Key': this.conf.token
+            'Acces-Control-Allow-Headers':'Origin, Content-Type, Accept,Authorization'
         }
         return {headers: new HttpHeaders(header)};
     }

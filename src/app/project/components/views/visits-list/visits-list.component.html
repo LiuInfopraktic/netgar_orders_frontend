@@ -1,0 +1,26 @@
+<section>
+    <h3>Historial visites</h3>
+    <div class="filters">
+        <input type="date" #date>
+        <button class="filter" (click)="filter(date.value)">Filtrar</button>
+        <button class="rm-filter" (click)="rmFilter()"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    <ul #visits_list>
+        <li class="header">
+            <p>Data</p>
+            <p>Dni</p>
+            <p>Nom</p>
+            <p>Empresa</p>
+            <p>Número</p>
+            <p>Motiu</p>
+        </li>
+        <li *ngFor="let v of this.visits" #li (click)="selectRow(li, visits_list)">
+            <p>{{v.data}}</p>
+            <p>{{v.dni}}</p>
+            <p>{{v.name}}</p>
+            <p>{{v.company}}</p>
+            <p>{{v.phone_number}}</p>
+            <p>{{v.type}}</p>
+        </li>
+    </ul>
+</section>
