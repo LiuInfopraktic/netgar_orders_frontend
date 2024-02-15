@@ -8,19 +8,19 @@
     <ul #visits_list>
         <li class="header">
             <p>Data</p>
-            <p>Empresa</p>
-            <p>Nom</p>
-            <p>Motiu</p>
-            <p>Número</p>
             <p>Dni</p>
+            <p>Nom</p>
+            <p>Empresa</p>
+            <p>Número</p>
+            <p>Motiu</p>
         </li>
         <li *ngFor="let v of this.visits" #li (click)="selectRow(li, visits_list)">
             <p>{{v.data}}</p>
-            <p>{{v.company}}</p>
-            <p>{{v.name}}</p>
-            <p>{{v.type}}</p>
-            <p>{{v.phone_number}}</p>
             <p>{{v.dni}}</p>
+            <p>{{v.name}}</p>
+            <p>{{v.company}}</p>
+            <p>{{v.phone_number}}</p>
+            <p>{{v.type}}</p>
         </li>
     </ul>
 </section>

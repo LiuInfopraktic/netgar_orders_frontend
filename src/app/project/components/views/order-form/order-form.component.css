@@ -3,6 +3,7 @@ section
     position: relative;
     width: 100vw;
     min-height: 100vh;
+    height: 160vh;
     background: var(--main-color-02);
 
     display: flex;
