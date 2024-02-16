@@ -29,23 +29,30 @@ export class OrderFormComponent implements OnInit {
   submitForm(btn:HTMLButtonElement, dni:string, tel:string, name:string, emp:string, type:string) {
     this.empresa ? '' : emp = 'Particular';
     let valid = false;
-    if(dni){
-      let first_char = dni.substring(0,1);
-      
-      if(!isNaN(parseInt(first_char.charAt(0), 10))) this.checkDNI(dni) ? valid = true : ''
-      else this.checkNIE(dni) ? valid = true : ''
-    }
-    if (valid){
-      btn.classList.add('loading');
-      this.order = { dni, tel, name, emp, type }
-      let popup = document.querySelector('.popup')
-      popup?.classList.remove('hide');
+    let regex_tel = /^\d{9,12}$/
+    if (tel.match(regex_tel)) {
+      if(dni){
+        let first_char = dni.substring(0,1);
+        
+        if(!isNaN(parseInt(first_char.charAt(0), 10))) this.checkDNI(dni) ? valid = true : ''
+        else this.checkNIE(dni) ? valid = true : ''
+      }
+      if (valid){
+        btn.classList.add('loading');
+        this.order = { dni, tel, name, emp, type }
+        let popup = document.querySelector('.popup')
+        popup?.classList.remove('hide');
+      } else {
+        document.querySelector('.form .input-box.dni')?.classList.add('error')
+        let err = document.querySelector('label.error');
+        err?.classList.add('show');
+        if(err) err.textContent= "El DNI/NIE no es correcte."
+      }
     } else {
-      document.querySelector('.form .input-box.dni')?.classList.add('error')
+      document.querySelector('.form .input-box.tel')?.classList.add('error')
       let err = document.querySelector('label.error');
       err?.classList.add('show');
-      if(err) err.textContent= "El DNI/NIE no es correcte."
-
+      if(err) err.textContent= "El Telefon no es vàlid"
     }
   }
 
