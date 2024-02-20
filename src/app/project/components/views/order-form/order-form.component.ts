@@ -29,7 +29,7 @@ export class OrderFormComponent implements OnInit {
   submitForm(btn:HTMLButtonElement, dni:string, tel:string, name:string, emp:string, type:string) {
     this.empresa ? '' : emp = 'Particular';
     let valid = false;
-    let regex_tel = /^\d{9,12}$/
+    let regex_tel = /^\d{9}$/
     if (tel.match(regex_tel)) {
       if(dni){
         let first_char = dni.substring(0,1);
