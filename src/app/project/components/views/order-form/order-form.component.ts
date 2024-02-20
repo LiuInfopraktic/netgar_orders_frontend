@@ -21,7 +21,10 @@ export class OrderFormComponent implements OnInit {
       this.empresa = true;
       input_box.classList.remove('hide')
     }
-    else input_box.classList.add('hide');
+    else {
+      input_box.classList.add('hide');
+      this.empresa = false;
+    }
     box.querySelector('.box.active')?.classList.remove('active')
     empresa.classList.add('active')
   }
