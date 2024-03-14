@@ -75,12 +75,14 @@ export class OrderFormComponent implements OnInit {
         let popup = document.querySelector('.popup')
         popup?.classList.add('hide')
         btn?.classList.remove('loading')
+        input.classList.remove('active')
         
       } catch(e){
         if(err) err.textContent= "No s'ha pogut guardar la comanda."
         let popup = document.querySelector('.popup')
         popup?.classList.add('hide')
         btn?.classList.remove('loading')
+        input.classList.remove('active')
       }
     } else{
       if(err) err.textContent= "No s'han acceptat les condicions.";
@@ -89,6 +91,7 @@ export class OrderFormComponent implements OnInit {
       popup?.classList.add('hide')
       let btn = document.querySelector('button.loading')
       btn?.classList.remove('loading')
+      input.classList.remove('active')
     }
     let checkbox:HTMLInputElement|null = document.querySelector("input[type='checkbox']");
     if(checkbox) checkbox.checked = false
