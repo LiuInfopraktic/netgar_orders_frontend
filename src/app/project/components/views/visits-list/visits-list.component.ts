@@ -39,7 +39,7 @@ export class VisitsListComponent implements OnInit {
     this.downloadFile(this.visits)
   }
   downloadFile(data:any, filename='data') {
-    let csvData = this.ConvertToCSV(data, ['dni','nom', 'empresa', 'telf.', 'tipus', 'data']);
+    let csvData = this.ConvertToCSV(data, ['dni','name', 'company', 'phone_number', 'type', 'data']);
     console.log(csvData)
     let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
     let dwldLink = document.createElement("a");
