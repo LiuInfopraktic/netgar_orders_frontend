@@ -4,6 +4,7 @@
         <input type="date" #date>
         <button class="filter" (click)="filter(date.value)">Filtrar</button>
         <button class="rm-filter" (click)="rmFilter()"><i class="fa-solid fa-trash-can"></i></button>
+        <button class="filter csv-download" (click)="downloadCSV()"><i class="fa-solid fa-download"></i> CSV</button>
     </div>
     <ul #visits_list>
         <li class="header">

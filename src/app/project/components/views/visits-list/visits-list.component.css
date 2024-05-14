@@ -24,6 +24,7 @@ h3
 }
 .filters button.filter:hover{background: var(--main-color-dark);}
 .filters button.filter:active{background: var(--main-color-dark2);}
+.filters .csv-download i{color: #f9f9f9}
 .rm-filter
 {
     height: 30px;
