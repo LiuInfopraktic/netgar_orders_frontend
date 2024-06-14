@@ -2,29 +2,29 @@
     <div class="popup hide">
         <div class="popup-msg">
             <!-- <img src="assets/netgar_popup.png"> -->
-            <p name="header">FITXA DE COORDINACIÓ D'ACTIVITATS EMPRESERIALS | Carrer Terrasa, 31, 17800 Olot</p>
+            <p name="header">ARCHIVO DE COORDINACIÓN DE ACTIVIDADES EMPRESARIALES | Carrer Terrasa, 31, 17800 Olot</p>
             <div class="blue_section">
-                <h1>MESURES DE PREVENCIÓ I SEGURETAT A LES INSTAL·LACIONS | NETEGRES GARROTXA, SL</h1>
-                <p>Reial decret 171/2004, de 30 gener, pel qual es desenvolupa l'article 24 de la Llei 31/1995, de 8 de novembre, de Prevenció de Riscos Laborals, en matèria de coordinació d'activitats empresarials.</p>
+                <h1>MESURAS DE PREVENCIÓN Y SEGURIDAD EN LAS INSTALACIONES | NETEGRES GARROTXA, SL</h1>
+                <p>Reial decreto 171/2004, de 30 Enero, por el cual se desarrolla el articulo 24 de la Lei 31/1995, de 8 de Noviembre, de Prevención de Riesgos Laborales, en matèria de coordinación de actividades empresariales.</p>
             </div>
-            <p name="intro">Sobre la base del Reial decret 171/2004, de 30 gener, pel qual es desenvolupa l'article 24 de la Llei 31/1995, de 8 de novembre, de Prevenció de Riscos Laborals, en matèria de coordinació d'activitats empresarials, s'informa de les següents mesures i normes de seguretat en les instal·lacions:</p>
+            <p name="intro">Sobre la base del Reial decreto 171/2004, de 30 Enero, por el cual se desarrolla el articulo 24 de la Lei 31/1995, de 8 de Novembre, de Prevención de Riesgos Laborales, en matèria de coordinación de actividades empresariales, se informa de les siguientes mesuras y normas de seguridad en les instalaciones:</p>
             <ul>
-                <li>Queda prohibit fer ús de la diferent maquinaria present al centre de treball sense estar format de forma especifica en matèria de PRL per el seu ús i haver esta autoritzat per a l'empresa: Plataformes Elevadores, Carretons...</li>
-                <li>Està prohibit fumar de tot el recinte.</li>
-                <li>No córrer per les escales del centre de treball.</li>
-                <li>Cal fer ús en tot moment dels equips de protecció indivicual per a les tasques a realitzar: calçat de seguretat, guants de seguretat, proteccions auditives si es realitzen treballs amb radials, amoladores, etc...</li>
-                <li>No manipular productes de neteja que es poden trobar al centre de treball.</li>
-                <li>No es podrà realitzar treballs en alçada (PEMP, treballs en bastides, sostres, etc...) sense disposar de la formació especifica en matèria de PRL ni disposar dels equips de protecció individuals adients per a la realització dels treballs.</li>
-                <li>En cas de detectar qualsevol situació de risc o patir un accident laboral, s'haurà de comunicar-lo immediatament al personal de l'empresa.</li>
-                <li>Les maquines o equips de treball que es facin servir per a qualsevol treball hauran de disposar CE i mantenir tots els sistemes i proteccions.</li>
-                <li>No ubicar-se mai darrera de cap vehicle. Sempre mantenir un contacte visual amb l'operari/a de l'equip.</li>
-                <li>No córrer per les instal·lacions.</li>
-                <li>En cas de detectar qualsevol conat d'incendi, avisar immediatament al personal de l'empresa. Si es requereix una evacuiació de les instal·lacions caldrà dirigir-se obligatoriament al punt de trobada.</li>
+                <li>Queda prohibido el uso de la distinta maquinaria presente en el centro de trabajo sin estar formado de forma especifica en matéria de PRL para su uso y haber estado autorizado por la empresa: Plataformas Elevadoras, Carretones...</li>
+                <li>Está prohibido fumar en todo el recinto.</li>
+                <li>No correr por las escaleras del centro de trabajo.</li>
+                <li>Se requiere hacer uso en todo momento de los equipos de protección individual para las tareas a realizar: calzado de seguridad, guantes de seguridad, protecciónes auditivas si se realizan trabajos con radiales, amoladoras, etc...</li>
+                <li>No manipular productos de limpieza que se pueden encontrar en el centro de trabajo.</li>
+                <li>No se podran realizar trabajos en alzada (PEMP, trabajos en andamios, techos, etc...) sin disponer de la formación específica en matéria de PRL ni disponer de los equipos de protección individual adientes para la realización de los trabajos.</li>
+                <li>En caso de detectar cualquier situación de riesgo o sufrir un accidente laboral, habra que comunicarlo inmediatamente al personal de la empresa.<li>
+                <li>Las màquinas o equipos de trabajo que se utilicen para cualquier trabajo tendran que disponer CE y mentener todos los sistemas y protecciones.</li>
+                <li>No ponerse jamás detrás de ningún vehiculo. Siempre mantener un contacto visual con el operario/a del equipo.</li>
+                <li>No correr por las instalaciones.</li>
+                <li>En caso de detectar cualquier conato de incendio, avisar inmediatamente al personal de la empresa. Si es requerido una evacuación de las instalaciones caldrá dirigirse obligatoriamente al punto de encuentro.</li>
             </ul>
             <img src="assets/img.png">
             <div class="checkbox" (click)="checkboxSetActive(input_accept)">
                 <div class="box" #input_accept><i class="fa-solid fa-check"></i></div>
-                <p>Accepto les condicions</p>
+                <p>Acepto las condiciones</p>
             </div>
             <button (click)="acceptForm(second_btn, input_accept)" #second_btn>ACCEPTAR</button>
         </div>
@@ -38,12 +38,12 @@
                 <input type="text" #input_dni (focus)="focus(input_box_dni)" (blur)="blur(input_box_dni, input_dni.value)">
             </div>
             <div class="input-box long" #input_box_name>
-                <p>Nom i Cognom</p>
+                <p>Nombre y apellidos</p>
                 <input type="text" #input_name (focus)="focus(input_box_name)" (blur)="blur(input_box_name, input_name.value)">
             </div>
         </div>
         <div class="input-box short tel" #input_box_tel>
-            <p>Telefon</p>
+            <p>Teléfono</p>
             <input type="number" #input_tel (focus)="focus(input_box_tel)" (blur)="blur(input_box_tel, input_tel.value)">
         </div>
         <div class="in-line emp-checkbox" #emp_checkbox_box>
@@ -63,13 +63,13 @@
         <select #select>
             <option>Visita</option>
             <option>Entrevista</option>
-            <option>Treball</option>
+            <option>Trabajo</option>
         </select>
-        <p class="accept_info">Les dades que ens facilita en aquest formulari passaran a formar part de  NETEGES GARROTXA, S.L.  amb la finalitat de complir amb la normativa de  Prevenció de Riscos Laborals. Les seves dades no seran cedides a tercers, sempre que no hi hagi un imperatiu legal.
-            Totes les dades personals recopilades seran conservades seguint les directrius de les normatives vigents.
-            De qualsevol dels apartats anterior, pot exercir els seus drets d'accés, rectificació, limitació, supressió, i oposició, i sol.licitar informació addicional, indicant-ho per escrit a NETEGES GARROTXA, S.L.  C/Terrassa 31, 17800 OLOT o per correu electrònic a: netgar@netgar.com.   (Reglament (UE) 2016/679 del Parlament Europeu i del Consell de 27 d'abril de 2016 i Llei  Orgànica 3/2018, de 5 de desembre, de Protecció de Dades  Personals i garantia de drets digitals).
+        <p class="accept_info">Los datos que nos facilita en este formulario pasaran a formar parte de NETEGES GARROTXA, S.L. con la finalidad de cumplir con la normativa de Prevención de Riscos Laborales. Sus datos no serán cedidas a terceros, siempre que no haiga un imperativo legal.
+            Todos los datos personales recopilados seran conservados siguiendo las directivas de las normativas vigentes.
+            De cualquiera de los apartados anteriores, puede ejercer sus derechos de acceso, rectificación, limitación, supressión y oposición y sol·licitar información adicional indicandolo por escrito a NETEGES GARROTXA S.L. C/Terrassa 31, 17800 OLOT o por correo electrónico a: netgar@netgar.com. (Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de Abril de 2016, Lei Orgànica 3/2018, de 5 de Diciembre de Protección de Datos Personales y garantia de derechos digitales).
         </p>
         <label class="error"></label>
-        <button #btn_submit (click)="submitForm(btn_submit, input_dni.value, input_tel.value, input_name.value, input_emp.value, select.value)">acceptar</button>
+        <button #btn_submit (click)="submitForm(btn_submit, input_dni.value, input_tel.value, input_name.value, input_emp.value, select.value)">aceptar</button>
     </div>
 </section>

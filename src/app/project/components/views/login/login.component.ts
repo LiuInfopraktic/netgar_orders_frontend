@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       try {
         let response = await this.ALogin.getLogin({user, password}).toPromise();
         localStorage.setItem('netgar-token', response.token);
-        this.router.navigate(['/admin']);
+        // this.router.navigate(['/admin']);
       }catch(e){
         this.error = 'Les credencials no son vàlides.'
       }
