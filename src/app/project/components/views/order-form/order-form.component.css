@@ -251,7 +251,8 @@ button.loading::before
     color: var(--main-color);
     font-weight: 600;
 }
-.popup-msg .checkbox .box {
+ .box {
+    position: relative;
     height: 22px;
     aspect-ratio: 1/1;
     border: 1px solid var(--main-color-06);
@@ -262,8 +263,20 @@ button.loading::before
     justify-content: center;
     background: white;
 }
+ .box.active::before
+{
+    content: '';
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    background: var(--main-color);
+    border-radius: 2px;
+}
 .popup-msg .checkbox .box:not(.active) i {display: none;}
-.popup-msg .checkbox .box i {color: var(--main-color);}
+.box i {color: #f9f9f9; z-index: 1; position: relative;}
 .popup-msg > img { width: 200px; height: auto;}
 
 .emp-checkbox{margin-bottom: 0; padding: 0 2rem;}
@@ -290,6 +303,6 @@ button.loading::before
     justify-content: center;
     background: white;
 }
-.emp-checkbox .box i {color: var(--main-color); font-size: 1.1rem;}
+.emp-checkbox .box i {font-size: 1.1rem;}
 .emp-checkbox .box:not(.active) i {display: none;}
 .hide{display: none !important;}
